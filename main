@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Design Karo Studio</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="cursor"></div>
+
+<header class="navbar">
+  <h1>DK</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2 class="reveal">Design That<br>Drives Results</h2>
+  <p class="reveal">Branding • Marketing • Development</p>
+  <button class="magnetic">Start Project</button>
+</section>
+
+<section id="about" class="section">
+  <h2>About</h2>
+  <p>
+    Design Karo Studio delivers premium digital experiences that blend
+    creativity with strategy. We don't just design — we build brands.
+  </p>
+</section>
+
+<section id="services" class="section">
+  <h2>Services</h2>
+  <div class="cards">
+    <div class="card">Brand Identity</div>
+    <div class="card">Digital Marketing</div>
+    <div class="card">Web Development</div>
+  </div>
+</section>
+
+<section id="work" class="section">
+  <h2>Selected Work</h2>
+  <div class="portfolio">
+    <div class="item">Project 1</div>
+    <div class="item">Project 2</div>
+    <div class="item">Project 3</div>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <h2>Let’s Build Something Powerful</h2>
+  <a href="https://wa.me/91XXXXXXXXXX" target="_blank">
+    <button>Chat on WhatsApp</button>
+  </a>
+</section>
+
+<footer>
+  <p>© 2026 Design Karo Studio</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #4B006E, #0e0e0e);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+}
+
+/* Sections */
+.section {
+  padding: 100px 50px;
+  text-align: center;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  padding: 50px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Portfolio */
+.portfolio {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.item {
+  width: 250px;
+  height: 250px;
+  background: #222;
+  transition: 0.4s;
+}
+
+.item:hover {
+  transform: scale(1.05);
+}
+
+/* Cursor Glow */
+.cursor {
+  width: 20px;
+  height: 20px;
+  background: #88956A;
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Button */
+button {
+  background: #88956A;
+  border: none;
+  padding: 15px 30px;
+  cursor: pointer;
+}
+// Cursor
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+// Reveal Animation
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 50) {
+      el.style.opacity = 1;
+      el.style.transform = "translateY(0)";
+    }
+  });
+});
